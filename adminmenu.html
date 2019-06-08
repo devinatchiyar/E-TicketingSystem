@@ -1,0 +1,288 @@
+<html>
+<head>
+<style>
+a:hover, a:active, a:visited, a:focus {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #efefef;
+}
+
+section {
+  height: 100vh;
+  z-index: 1;
+}
+
+#menu {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  list-style: none;
+  z-index: 99999;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.fill:hover, .fill:focus {
+  box-shadow: inset 0 0 0 2em darkorange;
+  border: 2px solid darkorange;
+}
+
+li {
+  text-transform: uppercase;
+  background: none;
+  border: 2px solid darkorange;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  cursor: pointer;
+  color: darkorange;
+  border-radius: 3px;
+  -webkit-transition: 0.30s;
+  transition: 0.30s;
+}
+
+li:hover {
+  border-color: darkorange;
+  color: #fff;
+}
+
+.home:hover, .home.active {
+  box-shadow: inset 0 0 0 2em darkorange;
+  border: 2px solid darkorange;
+  color: #fff;
+}
+
+.pizzas:hover, .pizzas.active {
+  box-shadow: inset 0 0 0 2em #D00000;
+  border: 2px solid #D00000;
+  color: #fff;
+}
+
+.bebidas:hover, .bebidas.active {
+  box-shadow: inset 0 0 0 2em #2093A0;
+  border: 2px solid #2093A0;
+  color: #fff;
+}
+
+.parapicar:hover, .parapicar.active {
+  box-shadow: inset 0 0 0 2em #FF30A8;
+  border: 2px solid #FF30A8;
+  color: #fff;
+}
+
+.hagastupizza:hover, .hagastupizza.active {
+  box-shadow: inset 0 0 0 2em #2E8CF2;
+  border: 2px solid #2E8CF2;
+  color: #fff;
+}
+
+.contactos:hover, .contactos.active {
+  box-shadow: inset 0 0 0 2em #479b08;
+  border: 2px solid #479b08;
+  color: #fff;
+}
+
+footer {
+  width: 100%;
+  height: 100vh;
+  background-color: grey;
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+}
+
+.map {
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.sfondo {
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.carta {
+  position: absolute;
+  top: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+span {
+  width: 170px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 0 50px 0;
+  font-weight: bold;
+}
+
+.cart-block {
+  display: flex;
+  width: 170px;
+  height: 50px;
+  position: relative;
+  bottom: 50px;
+}
+
+.cart {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: orange;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 90px;
+  height: 30px;
+  z-index: 999;
+  transition: .2s;
+}
+
+.cart:hover {
+  box-shadow: 3px 3px 3px #888;
+}
+
+.cart:active {
+  background-color: darkorange;
+  box-shadow: inset 3px 3px 3px #888;
+}
+
+.price {
+  width: 170px;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.pizza {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  text-align: center;
+  z-index: 10;
+  width: 170px;
+  height: 200px;
+  box-shadow: 0px 0px 10px #000;
+  margin: 50px 10px 40px;
+  background-color: #efefef;
+  background-image: url("http://www.freepngimg.com/thumb/pizza/2-pizza-png-image-thumb.png");
+  background-repeat: no-repeat;
+  background-position: 0px -20px;
+  background-size: 99.5%;
+}
+
+.pizza .tooltiptext {
+  visibility: hidden;
+  width: 170px;
+  height: 70px;
+  background-color: #efefef;
+  color: #444;
+  text-align: center;
+  border-radius: 0px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 207px;
+  left: 60px;
+  margin-left: -60px;
+  opacity: 0;
+  box-shadow: 0px 0px 10px #000;
+  transition: opacity 1s;
+}
+
+.pizza .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+
+.pizza:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  font-size: 11px;
+  text-align: left;
+  padding: 2px 0px 5px 5px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.carrito {
+  opacity: .7;
+  z-index: 9999;
+  position: fixed;
+  right: -8px;
+  top: 100px;
+  width: 80px;
+  height: 80px;
+  background-image: url("http://www.freeiconspng.com/uploads/shopping-cart-icon-19.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<script>
+var $menu = $("#menu");
+
+$("#page").fullpage({
+  anchors: ["firstPage", "secondPage", "3rdPage",  
+"4Page", "5Page", "6Page"],
+  menu: "#menu",
+  scrollingSpeed: 600,
+  onLeave: function(index, nextIndex, direction) {
+    if (nextIndex === 6) {
+      $menu.fadeOut(100);
+    } else {
+      $menu.fadeIn(100);
+    }
+  }
+});
+
+
+</script>
+<ul id="menu">
+  <a href="viewtravel.html">
+    <li data-menuanchor="firstPage" href="viewtravel.html" class="fill home">VIEW TRANSPORT</li>
+  </a>
+  <a href="viewhotel.html">
+    <li data-menuanchor="secondPage" href="viewhotel.html" class="fill pizzas">VIEW ACCOMODATION</li>
+  </a>
+  <a href="viewuser.html">
+    <li data-menuanchor="3rdPage" href="viewuser.html" class="fill bebidas">VIEW USERS</li>
+  </a>
+  <a href="viewadmin.html">
+    <li data-menuanchor="4Page" href="viewadmin.html" class="fill parapicar">VIEW ADMINS</li>
+  </a>
+  <a href="index.html">
+    <li data-menuanchor="6Page" href="index.html" class="fill contactos">LOG OUT</li>
+  </a>
+</ul>
+</body>
+</html>
